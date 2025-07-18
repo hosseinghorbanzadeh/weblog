@@ -1,2 +1,2 @@
 # weblog
- this is first mysite
+This site is a blog written in Python and the Django framework.
