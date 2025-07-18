@@ -1,0 +1,346 @@
+
+
+{% extends 'website/base.html' %}
+
+{% load static %}
+{% block content %} 
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section accent-background">
+
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-5 justify-content-between">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h2><span>Welcome to </span><span class="accent">the official website of Hossein</span></h2>
+            <p>This website was created as the final project for the Django course at Metabkhune. It features a homepage, a contact section, an about page, and a blog</p>
+            <div class="d-flex">
+              <a href="#about" class="btn-get-started">Get Started</a>
+              <!--
+                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+              -->
+              
+            </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2">
+            <img src="{% static 'img/hero-img.svg' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="icon-boxes position-relative" data-aos="fade-up" data-aos-delay="200">
+        <div class="container position-relative">
+          <div class="row gy-4 mt-5">
+
+            <div class="col-xl-3 col-md-6">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-house"></i></div>
+                <h4 class="title">
+                  <a href="{% url 'blog:index' %}" class="stretched-link">Home</a>
+                </h4>
+              </div>
+            </div><!--End Icon Box -->
+
+            <div class="col-xl-3 col-md-6">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-building"></i></div>
+                <h4 class="title"><a href="#about" class="stretched-link">About</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+
+            <div class="col-xl-3 col-md-6">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-pencil-square"></i></div>
+                <h4 class="title"><a href="{% url 'blogpage:blog' %}" class="stretched-link">Blog</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+
+            <div class="col-xl-3 col-md-6">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-telephone"></i></div>
+                <h4 class="title"><a href="{% url 'blog:contact' %}"  class="stretched-link">Contact</a></h4>
+              </div>
+            </div><!--End Icon Box -->
+
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Me<br></h2>
+        <p>My name is Hossein Ghorbanzadeh. I hold a Ph.D. in Software Engineering and currently work in the petrochemical industry.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3>An overview of Dr. Hossein Ghorbanzadeh’s academic background, expertise, and professional journey.
+            </h3>
+            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded-4 mb-4" alt="">
+            <p>
+              I was born in 1982 in Andimeshk, where I also completed my high school education. Between 2001 and 2021, I pursued and successfully completed my higher education from Bachelor's to Ph.D. in Software Engineering.
+            </p>
+            <p> I am currently working in the petrochemical industry as a Senior Expert in Mechanized Systems. At present, I serve as the Project Manager for the implementation of an industrial ERP system.
+            </p>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Professional Experience and Expertise
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Deployment of various enterprise software modules</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Python programming</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Django framework development</span></li>
+              </ul>
+              <p>
+                I specialize in the development and implementation of industrial ERP systems, with a strong focus on integrating IT and operational technologies (OT) in complex industrial environments.
+
+              </p>
+
+              <div class="position-relative mt-4">
+                <img src="{% static 'img/about-2.jpg' %}" class="img-fluid rounded-4" alt="">
+                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section">
+
+      <div class="container">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 40
+                },
+                "480": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 60
+                },
+                "640": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 80
+                },
+                "992": {
+                  "slidesPerView": 6,
+                  "spaceBetween": 120
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-1.png' %}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-2.png' %}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-3.png' %}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-4.png' %}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-5.png' %}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-6.png' %}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-7.png' %}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'img/clients/client-8.png' %}" class="img-fluid" alt=""></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Clients Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 align-items-center">
+
+          <div class="col-lg-5">
+            <img src="{% static 'img/stats-img.svg' %}" alt="" class="img-fluid">
+          </div>
+
+          <div class="col-lg-7">
+
+            <div class="row gy-4">
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-emoji-smile flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-journal-richtext flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-headset flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-people flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+
+    <!-- Recent Posts Section -->
+    <section id="recent-posts" class="recent-posts section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Recent Blog Posts</h2>
+        <p>A short list of blog entries with their corresponding categories</p>
+      </div>
+    
+      <div class="container">
+    
+        <div class="row gy-4">
+          {% for post in posts %}
+            <div class="col-lg-4">
+              <article class="blog-post">
+    
+                <!-- تصویر پست -->
+                <div class="post-img">
+                  <img src="{{ post.image.url }}" alt="" class="img-fluid">
+                </div>
+    
+                <!-- دسته‌بندی‌ها -->
+                <div class="post-categories mb-2">
+                  {% for cat in post.category.all %}
+                    <a href="{% url 'blogpage:category' cat_name=cat.name %}" class="badge bg-primary me-1">
+                      {{ cat.name }}
+                    </a>
+                  {% endfor %}
+                </div>
+    
+                <!-- عنوان یا خلاصه محتوا -->
+                <h2 class="title">
+                  
+                  <a href="{% url 'blogpage:single'  pid=post.id %}">
+                    {{ post.title }}
+                  </a>
+                  <br>
+                  <br>
+
+                  <a href="{% url 'blogpage:single'  pid=post.id %}">
+                    {{ post.content|striptags|truncatewords:10|safe }}
+                  </a>
+                </h2>
+    
+                <!-- اطلاعات نویسنده و تاریخ -->
+                <div class="d-flex align-items-center mt-3">
+                  <img src="{% static 'img/blog/blog-author.jpg' %}" alt="" class="img-fluid post-author-img flex-shrink-0 rounded-circle me-2" width="40" height="40">
+                  <div class="post-meta">
+                    <p class="post-author mb-0 fw-bold">{{ post.author }}</p>
+                    <p class="post-date mb-0 text-muted">{{ post.published_date|date:"D d M Y" }}</p>
+                  </div>
+                </div>
+    
+              </article>
+            </div>
+          {% endfor %}
+        </div>
+    
+        <!-- صفحه‌بندی -->
+        {% if posts.has_other_pages %}
+        <nav class="mt-5 d-flex justify-content-center">
+          <ul class="pagination">
+            {% if posts.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page=1">&laquo;</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ posts.previous_page_number }}">Before</a>
+              </li>
+            {% endif %}
+    
+            {% for num in posts.paginator.page_range %}
+              {% if posts.number == num %}
+                <li class="page-item active">
+                  <span class="page-link">{{ num }}</span>
+                </li>
+              {% elif num >= posts.number|add:"-2" and num <= posts.number|add:"2" %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+    
+            {% if posts.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ posts.next_page_number }}">Next</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ posts.paginator.num_pages }}">&raquo;</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
+    
+      </div>
+    </section>
+    
+
+  
+
+  </main>
+
+  {% endblock%}
+
+
+

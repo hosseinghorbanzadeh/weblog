@@ -1,0 +1,118 @@
+
+
+{% extends 'website/base_blog.html' %}
+
+{% load static %}
+{% block content %} 
+
+  <main class="main">
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Please write your message </p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gx-lg-0 gy-4">
+
+          <div class="col-lg-4">
+            <div class="info-container d-flex flex-column align-items-center justify-content-center">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>Asaluyeh Port, Pars Special Energy Economic Zone, Petrochemical Square, Abuzar Street, J2 Street </p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Call Me</h3>
+                  <p>+98 9166 4172 34</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>hossein.ghorbanzadeh@mekpco.ir</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                <i class="bi bi-clock flex-shrink-0"></i>
+                <div>
+                  <h3>Open Hours:</h3>
+                  <p>Mon-Sat: 11AM - 23PM</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+           
+          
+
+				<form  action="{% url 'blog:contact' %}" method="post" class="php-email-form">
+				
+              
+              <div class="row gy-4">
+                {% csrf_token %}
+                <div class="col-md-6">
+                  
+				          <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="form-control" required="" type="text">
+                </div>
+
+                <div class="col-md-6 ">
+                  
+				            <input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="form-control" required="" type="email">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+
+                </div>
+
+                <div class="col-md-12">
+                 
+				  <textarea class="form-control" name="message" placeholder="Enter Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+					<div class="col-md-6">
+						
+					  </div>
+            <div class="col-md-12 text-center">
+              {{form.captcha}}
+            </div>
+					
+					
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  {% endblock%}
+
+
+
