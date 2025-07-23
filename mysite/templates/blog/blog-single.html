@@ -106,20 +106,34 @@
             <div class="container">
 
               <h4 class="comments-count">Comments</h4>
-
+              
+              
+              {% for command in comments%}
               <div id="comment-1" class="comment">
+                
                 <div class="d-flex">
                   <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                 
                   <div>
+                    <!--
                     <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan,2022</time>
+                    -->
+                    
+                    <p >{{command.name}} , {{command.created_date|date:"d M Y"}}</p>
                     <p>
-                      Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
-                      Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
+                      {{command.message}}
                     </p>
                   </div>
+                 
                 </div>
+               
+                          
               </div><!-- End comment #1 -->
+              {% empty %}
+              
+              <p> no  comments </p>
+              {% endfor %}
+              
             </div>
 
           </section><!-- /Blog Comments Section -->
@@ -128,10 +142,12 @@
           <section id="comment-form" class="comment-form section">
             <div class="container">
 
-              <form action="">
+              <form method="post" action='{%url "blogpage:single" pid=post.id%}' >
+                {% csrf_token %}
 
                 <h4>Post Comment</h4>
                 <p>Your email address will not be published. Required fields are marked * </p>
+                <input name="post" type="hidden" class="form-control" value={{post.id}}>
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input name="name" type="text" class="form-control" placeholder="Your Name*">
@@ -142,12 +158,12 @@
                 </div>
                 <div class="row">
                   <div class="col form-group">
-                    <input name="website" type="text" class="form-control" placeholder="Your Website">
+                    <input name="subject" type="text" class="form-control" placeholder="Your Subject">
                   </div>
                 </div>
                 <div class="row">
                   <div class="col form-group">
-                    <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                    <textarea name="message" class="form-control" placeholder="Your Comment*"></textarea>
                   </div>
                 </div>
 

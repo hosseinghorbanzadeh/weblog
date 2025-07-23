@@ -48,17 +48,18 @@ def blog_single(request,pid):
         print('============request.method================')
         form = Commentform(request.POST)
         if form.is_valid():
+            print("validate")
             form.save()
-            print('============save================')
             messages.add_message(request, messages.SUCCESS, "Comment saved successfully.after approve with admin you can see it")
         else:
+            print("NOT validate")
             messages.add_message(request, messages.ERROR, "Comment don't saved !")
    
     now = timezone.now()
     post=get_object_or_404(Post,pk=pid,published_date__lte=now,status=True)
     next_post = Post.objects.filter(id__gt=post.id,published_date__lte=now,status=True).order_by('id').first()
     prev_post = Post.objects.filter(id__lt=post.id,published_date__lte=now,status=True).order_by('-id').first()
-    print('============show================',request.method)
+    #print('============show================',request.method)
     if not post.login_require:
         comments=Comment.objects.filter(post=post.id,approve=True)
         form=Commentform()
